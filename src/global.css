@@ -1,0 +1,131 @@
+:root {
+  font-family: sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+    --primary-color:rgba(6, 11, 38, 1);
+    --primary-light: rgb(9,24,58);
+    --secondary-color: rgba(158, 160, 253, 0.161);
+    --success-color: #28a745;
+    --success-light: #1ddb492f;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107; 
+    --info-color: rgba(0, 117, 255, 1);
+    --light-color: rgba(255, 255, 255, 0.623);
+    --dark-color: #000000;
+  
+    /* Text Colors */
+    --text-primary: white;
+    --text-secondary: rgba(73, 73, 73, 0.849);
+    --text-muted: #b6b3b3da;
+  
+    /* Background Colors */
+    --bg-primary: rgb(17,14,38) ;
+    --bg-secondary: #232333;
+    --bg-dark: #000000;
+  
+    /* Font Sizes */
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.75rem;
+    --font-size-h4: 1.5rem;
+    --font-size-h5: 1.25rem;
+    --font-size-h6: 1rem;
+    --font-size-body: 1rem;
+    --font-size-small: 0.875rem;
+    --font-family:  sans-serif;
+    margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+ html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+  
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #ebebeb;
+
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+} 
