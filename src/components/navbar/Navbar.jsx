@@ -33,7 +33,7 @@ export default function Navbar() {
           {/* Left Section: Logo and Company Name */}
           <Stack direction={'row'} gap={1} alignItems="center" >
             {/* Placeholder for logo icon */}
-            <img src='/public/images/logo.png' alt='Logo' style={{height:50, width:50}}/>
+            <img src='/images/logo.png' alt='Logo' style={{height:50, width:50}}/>
             <Typography  color='var(--dark-color)' fontSize={20} fontWeight={'bold'}>
               MY EXAM PARTNER
             </Typography>
