@@ -20,12 +20,12 @@ function Booking() {
   ]
   return (
     <>
-     <Stack my={3} direction={'row'} justifyContent={'space-between'} sx={{backgroundImage:"url(/images/tutors.png)",backgroundPosition:"fixed",backgroundSize:"cover",backgroundRepeat:"no-repeat",minHeight:"500px"}} py={8} px={18}>
+     <Stack my={12} direction={['column','column','column','row','row']} justifyContent={'space-between'} minWidth={'100%'} maxWidth={'100%'} sx={{backgroundImage:"url(/images/tutors.png)",backgroundAttcahment:"fixed",backgroundSize:"cover",backgroundRepeat:"no-repeat",minHeight:"400px"}}  >
 
       {/* left section text  */}
-      <Stack spacing={3} minWidth={'40%'} maxWidth={'40%'} >
-        <Typography fontSize={40} fontWeight={550} color='var(--text-primary)' >Why Choose My Exam Partner</Typography>
-        <Typography fontSize={30} color='var(--text-primary)'>We are not just another tutoring service — we are your academic partners:</Typography>
+      <Stack spacing={3} minWidth={['100%','100%','80%','50%','40%']} maxWidth={'40%'} py={6} pl={[2,2,2,2,18]} pr={[2,2,2,2,0]} alignSelf={'center'}>
+        <Typography fontSize={35} fontWeight={550} color='var(--text-primary)' >Why Choose My Exam Partner</Typography>
+        <Typography fontSize={25} color='var(--text-primary)'>We are not just another tutoring service — we are your academic partners:</Typography>
 
         {/* points  */}
         <Stack spacing={2}>
@@ -36,21 +36,51 @@ function Booking() {
                 <IconButton sx={{backgroundColor:"white",p:0.5,mt:0.7}}>
                   <StarRoundedIcon sx={{fontSize:18}}/>
                 </IconButton>
-                  <Typography fontSize={23}  color='var(--text-primary)'>{item.info}</Typography>
+                  <Typography fontSize={22}  color='var(--text-primary)'>{item.info}</Typography>
                 </Stack>
               )
             })
           }
         </Stack>
-         <Button  sx={{color:"var(--text-primary)",mt:10,backgroundColor:"transparent",border:"1px solid var(--text-primary)",maxWidth:"290px",fontSize:18,px:2.5,py:1.5,borderRadius:10,"&:hover":{
-      backgroundColor:"rgba(7, 14, 116, 0.84)",color:"var(--text-primary)"
-    }}}  endIcon={<Person2RoundedIcon sx={{width:25,height:25}}/>}>Book Your Tutors</Button>
+         <Button  sx={{color:"var(--text-primary)",mt:10,backgroundColor:"transparent",border:"1px solid var(--text-primary)",maxWidth:"240px",fontSize:17,px:2.5,py:1.5,borderRadius:10,"&:hover":{
+      backgroundColor:"var(--info-color)",color:"var(--text-primary)"
+    }}}  >Book Your Tutor</Button>
     </Stack>
 
     {/* right section img  */}
-    <Stack minWidth={'55%'} maxWidth={'55%'}  >
-       <img src='/images/scholar.jpg' alt='img' style={{minHeight:"600px",borderRadius:8}}/>
-    </Stack>
+    <Stack
+  minWidth={['100%','100%','100%','55%','55%']}
+  maxWidth={['100%','100%','100%','55%','55%']}
+  alignSelf="flex-end"
+  sx={{
+    '@media (max-width:600px)': {
+      display: 'none',
+    },
+  }}
+>
+  <img
+    src="/images/scholar.jpg"
+    alt="img"
+    style={{
+      minHeight: {
+        xs: "300px",
+        sm: "350px",
+        md: "400px",
+        lg: "450px",
+        xl: "600px",
+      },
+      maxHeight: {
+        xs: "300px",
+        sm: "350px",
+        md: "400px",
+        lg: "450px",
+        xl: "600px",
+      },
+      borderRadius: 8,
+    }}
+  />
+</Stack>
+
      
      </Stack>
     </>

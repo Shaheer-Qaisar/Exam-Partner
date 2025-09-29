@@ -28,15 +28,15 @@ function StartingSteps() {
 ];
   return (
     <>
-      <Stack direction={'row'} minWidth={'100%'} maxWidth={'100%'} px={20} my={3} justifyContent={'space-evenly'} gap={4}>
+      <Stack direction={['column','column','column','row']} minWidth={'100%'} maxWidth={'100%'} px={[2,3,4,5,7,20]} my={3} justifyContent={'space-evenly'} gap={4}>
 
         {/* left side text  */}
-        <Stack spacing={3} minWidth={'50%'} maxWidth={'50%'} alignItems={'flex-start'} my={3}>
+        <Stack spacing={3} minWidth={['100%','100%','100%','50%']} maxWidth={['100%','100%','100%','50%']} alignItems={['center','center','center','flex-start']} textAlign={['center','center','center','left']} my={3}>
           <Typography color='var(--dark-color)' fontSize={55} fontWeight={'bold'}>Here’s How Easy It Is to Learn with Us</Typography>
           <Typography color='var(--text-secondary)' fontSize={35}>Follow these simple steps to start your personalized learning journey</Typography>
           <Button  sx={{color:"rgba(7, 14, 116, 0.84)",mt:10,backgroundColor:"transparent",border:"1px solid rgba(7, 14, 116, 0.84)",maxWidth:"320px",fontSize:18,px:2.5,py:1.5,borderRadius:10,"&:hover":{
       backgroundColor:"rgba(7, 14, 116, 0.84)",color:"var(--text-primary)"
-    }}}  endIcon={<Person2RoundedIcon sx={{width:25,height:25}}/>}>See More Tutors</Button>
+    }}}  endIcon={<Person2RoundedIcon sx={{width:25,height:25}}/>}>Let's Connect</Button>
         </Stack>
 
         {/* steps    */}
@@ -44,8 +44,8 @@ function StartingSteps() {
          <Stack
       direction="row"
       spacing={3}
-      minWidth={'47%'}
-      maxWidth={'47%'}
+      minWidth={['100%','100%','80%','47%']}
+      maxWidth={['100%','100%','80%','47%']}
       sx={{ position: "relative",  mx: "auto", py: 4 }}
     >
       {/* Vertical line */}
@@ -73,7 +73,7 @@ function StartingSteps() {
                 width: "20px",
                 height: "20px",
                 borderRadius: "50%",
-                bgcolor: "#1e40af",
+                bgcolor: "var(--info-color)",
                 border: "2px solid white", // makes a nice outline
                 zIndex: 2,
               }}
@@ -87,7 +87,7 @@ function StartingSteps() {
                 width: "32px",
                 height: "32px",
                 borderRadius: "50%",
-                bgcolor: "#05258fff", // dark blue
+                bgcolor: "var(--info-color)", // dark blue
                 color: "white",
                 fontSize: 14,
                 display: "flex",
@@ -100,24 +100,25 @@ function StartingSteps() {
             </Box>
 
             {/* Text */}
-            <Stack spacing={1} pt={3}>
+            <Stack spacing={1} pt={3} maxWidth={['100%','100%','80%','100%','80%']}>
               <Typography fontWeight={600} fontSize={30}>{step.title}</Typography>
               <Typography fontSize={20} color="text.secondary">
                 {step.desc}
               </Typography>
             </Stack>
 
-            {/* Optional image */}
+            {/* image  */}
             {step.image && (
               <Box
                 component="img"
                 src={step.image}
                 alt="step"
                 sx={{
-                  borderRadius: 2,
+                  borderRadius: 10,
                   mt: 1,
                   maxWidth: "100%",
                   objectFit: "cover",
+                  
                 }}
               />
             )}

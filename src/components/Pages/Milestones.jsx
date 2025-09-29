@@ -77,14 +77,15 @@ function Milestones() {
   ];
   return (
     <>
-      <Stack spacing={3} minWidth={"100%"} maxWidth={"100%"} my={3}>
+      <Stack spacing={8} minWidth={"100%"} maxWidth={"100%"} mt={10} mb={5}>
         {/* top text  */}
         <Stack
           spacing={2}
           textAlign={"center"}
           alignSelf={"center"}
-          minWidth={"40%"}
-          maxWidth={"40%"}
+          minWidth={["100%", "70%", "60%", "40%"]}
+          maxWidth={["100%", "70%", "60%", "40%"]}
+          
         >
           <Typography fontSize={32} fontWeight={550}>
             Explore Our Expertise
@@ -97,13 +98,15 @@ function Milestones() {
         </Stack>
 
         <Stack
-          direction={"row"}
+          direction={["column", "row"]}
           gap={4}
-          minWidth={"80%"}
+          minWidth={["100%", "100%", "100%", "90%", "80%"]}
           flexWrap={"wrap"}
-          maxWidth={"80%"}
+          flexGrow={3}
+          maxWidth={["100%", "100%", "100%", "90%", "80%"]}
           justifyContent={"center"}
           alignSelf={"center"}
+          px={[2, 0]}
         >
           {cardData.map((item, index) => {
             const IconComponent = item.icon;
@@ -113,57 +116,74 @@ function Milestones() {
                 key={index}
                 boxShadow={3}
                 p={4}
-                minWidth={"26%"}
-                maxWidth={"26%"}
+                minWidth={["100%", "45%", "33%", "30%", "26%"]}
+                maxWidth={["100%", "45%", "33%", "30%", "26%"]}
                 borderRadius={8}
+                sx={{
+                  minHeight: "450px", // fix card height (adjust as needed)
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
               >
-                <IconButton
-                  sx={{
-                    backgroundColor: "rgba(7, 14, 116, 0.84)",
-                    borderRadius: 4,
-                    p: 1.3,
-                    width: 60,
-                    height: 60,
-                    "&:hover":{
-                      backgroundColor: "rgba(7, 14, 116, 0.84)",
-                    }
-                  }}
-                >
-                  <IconComponent sx={{ color: "white", fontSize: 35 }} />
-                </IconButton>
-                <Typography
-                  color="rgba(7, 14, 116, 0.84)"
-                  fontSize={24}
-                  fontWeight={550}
-                >
-                  {item.title}
-                </Typography>
-                {/* list points  */}
-                <Stack spacing={2} maxWidth={"100%"}>
-                  <Stack direction={"row"} gap={0.5} alignItems={"flex-start"}>
-                    <DoubleArrowIcon sx={{ color: "rgba(58, 56, 56, 0.88)" }} />
-                    <Typography mt={-0.3} fontSize={20}>
-                      {item.descrip1}
-                    </Typography>
-                  </Stack>
-                  <Stack direction={"row"} gap={0.5} alignItems={"flex-start"}>
-                    <DoubleArrowIcon sx={{ color: "rgba(58, 56, 56, 0.88)" }} />
-                    <Typography mt={-0.3} fontSize={20}>
-                      {item.descrip2}
-                    </Typography>
-                  </Stack>
-                  <Stack direction={"row"} gap={0.5} alignItems={"flex-start"}>
-                    <DoubleArrowIcon sx={{ color: "rgba(58, 56, 56, 0.88)" }} />
-                    <Typography mt={-0.3} fontSize={20}>
-                      {item.descrip3}
-                    </Typography>
+                {/* Top content */}
+                <Stack spacing={3}>
+                  <IconButton
+                    sx={{
+                      backgroundColor: "var(--info-color)",
+                      borderRadius: 4,
+                      p: 1.3,
+                      width: 60,
+                      height: 60,
+                      "&:hover": {
+                        backgroundColor: "var(--info-color)",
+                      },
+                    }}
+                  >
+                    <IconComponent sx={{ color: "white", fontSize: 35 }} />
+                  </IconButton>
+                  <Typography
+                    color="var(--info-color)"
+                    fontSize={24}
+                    fontWeight={550}
+                  >
+                    {item.title}
+                  </Typography>
+
+                  {/* list points */}
+                  <Stack spacing={2} maxWidth="100%" flexGrow={1}>
+                    <Stack direction="row" gap={0.5} alignItems="flex-start">
+                      <DoubleArrowIcon
+                        sx={{ color: "rgba(58, 56, 56, 0.88)" }}
+                      />
+                      <Typography mt={-0.3} fontSize={20}>
+                        {item.descrip1}
+                      </Typography>
+                    </Stack>
+                    <Stack direction="row" gap={0.5} alignItems="flex-start">
+                      <DoubleArrowIcon
+                        sx={{ color: "rgba(58, 56, 56, 0.88)" }}
+                      />
+                      <Typography mt={-0.3} fontSize={20}>
+                        {item.descrip2}
+                      </Typography>
+                    </Stack>
+                    <Stack direction="row" gap={0.5} alignItems="flex-start">
+                      <DoubleArrowIcon
+                        sx={{ color: "rgba(58, 56, 56, 0.88)" }}
+                      />
+                      <Typography mt={-0.3} fontSize={20}>
+                        {item.descrip3}
+                      </Typography>
+                    </Stack>
                   </Stack>
                 </Stack>
-                <Stack direction={"row"} gap={1} alignItems={"center"}>
-                  <Typography color="rgba(7, 14, 116, 0.84)" fontSize={22}>
+
+                {/* Bottom aligned Read More */}
+                <Stack direction="row" gap={1} alignItems="center">
+                  <Typography color="var(--info-color)" fontSize={22}>
                     Read More
                   </Typography>
-                  <ArrowForwardIcon sx={{ color: "rgba(7, 14, 116, 0.84)" }} />
+                  <ArrowForwardIcon sx={{ color: "var(--info-color)" }} />
                 </Stack>
               </Stack>
             );

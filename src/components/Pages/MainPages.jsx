@@ -11,12 +11,12 @@ function MainPages() {
   return (
     <>
       <Banner />
-      <Milestones/>
+       <Milestones/>
       <OurTeam/>
       <StartingSteps/>
-      <Booking/>
+     <Booking/>
       <FAQs/>
-      <ContactForm/> 
+     <ContactForm/>  
     </>
   )
 }

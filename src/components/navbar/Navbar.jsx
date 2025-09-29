@@ -1,89 +1,176 @@
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import { Stack } from '@mui/material';
-import { Link } from 'react-router-dom';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-export default function Navbar() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+import React from "react";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Collapse,
+  useMediaQuery,
+} from "@mui/material";
+import { Link, useLocation } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+export default function Navbar() {
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [curriculumOpen, setCurriculumOpen] = React.useState(false);
+  const isMobile = useMediaQuery("(max-width:900px)");
+  const location = useLocation();
+
+  const toggleDrawer = (open) => () => {
+    setDrawerOpen(open);
   };
-  
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
+
+  const navLinks = [
+    { to: "/", label: "Home" },
+    { to: "/about", label: "About Us" },
+    { to: "/pricing", label: "Pricing" },
+  ];
 
   return (
-    <AppBar position="static" >
-      <Toolbar sx={{backgroundColor:"white"}}>
+    <AppBar position="static">
+      <Toolbar sx={{ backgroundColor: "white", py: 2 }}>
         <Box
           display="flex"
-          flexDirection={{ xs: 'column', sm: 'row' }}
           alignItems="center"
           justifyContent="space-between"
           width="100%"
         >
-          {/* Left Section: Logo and Company Name */}
-          <Stack direction={'row'} gap={1} alignItems="center" >
-            {/* Placeholder for logo icon */}
-            <img src='/images/logo.png' alt='Logo' style={{height:50, width:50}}/>
-            <Typography  color='var(--dark-color)' fontSize={20} fontWeight={'bold'}>
+          {/* Logo */}
+          <Box display="flex" alignItems="center" gap={1}>
+            <img src="/images/logo.png" alt="Logo" style={{ height: 50, width: 50 }} />
+            <Typography color="var(--dark-color)" fontSize={20} fontWeight="bold">
               MY EXAM PARTNER
             </Typography>
-          </Stack>
-          
-          {/* Center Section: Navigation Links */}
-          <Box
-            display="flex"
-            flexGrow={1}
-            justifyContent="center"
-            flexDirection={{ xs: 'column', sm: 'row' }}
-            alignItems="center"
-            sx={{ gap: 6 }}
-          >
-            <Link to={'/'} style={{color:"var(--dark-color)",fontWeight:'SemiBold',fontSize:18}}>Home</Link>
-            <Link to={'/'} style={{color:"var(--dark-color)",fontWeight:'SemiBold',fontSize:18}}>About Us</Link>
-            <Link to={'/'} style={{color:"var(--dark-color)",fontWeight:'SemiBold',fontSize:18}}>Pricing</Link>
-            <Button endIcon={<KeyboardArrowDownIcon/>} style={{color:"var(--dark-color)",fontWeight:'SemiBold',fontSize:18}} onClick={handleMenuOpen}>
-              Curriculum
-            </Button>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleMenuClose}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-            >
-              <MenuItem onClick={handleMenuClose}>Option 1</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Option 2</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Option 3</MenuItem>
-              <MenuItem onClick={handleMenuClose}>Option 4</MenuItem>
-            </Menu>
           </Box>
-          
-          {/* Right Section: Contact Us Button */}
-          <Box sx={{ mt: { xs: 2, sm: 0 } }}>
+
+          {/* Desktop Nav */}
+          {!isMobile && (
+            <Box display="flex" gap={6} alignItems="center">
+              {navLinks.map((link, idx) => (
+                <Link
+                  key={idx}
+                  to={link.to}
+                  style={{
+                    color: "black",
+                    fontWeight: 600,
+                    fontSize: 18,
+                    backgroundColor:
+                      location.pathname === link.to ? "rgba(239, 246, 255, 1)" : "transparent",
+                    padding: "6px 12px",
+                    borderRadius: "6px",
+                    textDecoration: "none",
+                  }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Button
+                endIcon={<KeyboardArrowDownIcon />}
+                style={{ color: "black", fontWeight: 600, fontSize: 18 }}
+              >
+                Curriculum
+              </Button>
+            </Box>
+          )}
+
+          {/* Right Button */}
+          {!isMobile && (
             <Button
-              sx={{ px: 3, py: 1, width: { xs: '100%', sm: 'auto' },color:"var(--dark-color)",backgroundColor:"transparent",border:"2px solid black",borderRadius:"50px",fontWeight:550}}
+              sx={{
+                px: 3,
+                py: 1,
+                color: "var(--dark-color)",
+                backgroundColor: "transparent",
+                border: "2px solid black",
+                borderRadius: "50px",
+                fontWeight: 550,
+              }}
             >
               Contact Us
             </Button>
-          </Box>
+          )}
+
+          {/* Mobile Menu Icon */}
+          {isMobile && (
+            <IconButton onClick={toggleDrawer(true)}>
+              <MenuIcon sx={{ color: "black" }} />
+            </IconButton>
+          )}
         </Box>
       </Toolbar>
+
+      {/* Drawer */}
+      <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
+        <Box sx={{ width: 250, p: 2 }}>
+          <List>
+            {navLinks.map((link, idx) => (
+              <ListItem
+                key={idx}
+                button
+                component={Link}
+                to={link.to}
+                onClick={toggleDrawer(false)}
+                sx={{
+                  color: "black",
+                  backgroundColor:
+                    location.pathname === link.to ? "rgba(239, 246, 255, 1)" : "transparent",
+                  borderRadius: 1,
+                }}
+              >
+                <ListItemText primary={link.label} />
+              </ListItem>
+            ))}
+
+            {/* Curriculum Dropdown */}
+            <ListItem
+              button
+              onClick={() => setCurriculumOpen(!curriculumOpen)}
+              sx={{ color: "black" }}
+            >
+              <ListItemText primary="Curriculum" />
+              {curriculumOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            </ListItem>
+            <Collapse in={curriculumOpen} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {["Option 1", "Option 2", "Option 3", "Option 4"].map((opt, idx) => (
+                  <ListItem
+                    key={idx}
+                    button
+                    sx={{ pl: 4, color: "black" }}
+                    onClick={toggleDrawer(false)}
+                  >
+                    <ListItemText primary={opt} />
+                  </ListItem>
+                ))}
+              </List>
+            </Collapse>
+
+            <ListItem>
+              <Button
+                fullWidth
+                sx={{
+                  mt: 2,
+                  color: "var(--dark-color)",
+                  backgroundColor: "transparent",
+                  border: "2px solid black",
+                  borderRadius: "50px",
+                  fontWeight: 550,
+                }}
+              >
+                Contact Us
+              </Button>
+            </ListItem>
+          </List>
+        </Box>
+      </Drawer>
     </AppBar>
   );
 }

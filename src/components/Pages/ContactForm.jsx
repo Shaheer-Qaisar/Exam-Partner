@@ -82,12 +82,13 @@ function ContactUs() {
     <Stack
       direction={isBelow900 ? "column" : isBelow1200 ? "column" : "row"}
       justifyContent={"space-between"}
-      maxWidth={["95%", "75%", "85%", "75%"]}
-      minWidth={["95%", "75%", "85%", "75%"]}
+      maxWidth={["95%", "75%", "85%", '75%',"63%"]}
+      minWidth={["95%", "75%", "85%", '75%',"63%"]}
       m={[1, 3]}
+      gap={3}
       alignItems={"center"}
       justifySelf={"center"}
-      boxShadow={3}
+      boxShadow={6}
       sx={{ backgroundColor: "white" }}
       p={[3]}
       borderRadius={10}
@@ -138,7 +139,7 @@ function ContactUs() {
         component="form"
         onSubmit={handleSubmit}
       >
-        <Typography color="rgba(248, 191, 5, 0.99)" fontSize={28}>
+        <Typography color="var(--info-color)" fontSize={28}>
           My Exam Partner
         </Typography>
 
@@ -256,7 +257,7 @@ function ContactUs() {
           <Button
             type="submit"
             sx={{
-              backgroundColor: "rgba(248, 191, 5, 0.99)",
+              backgroundColor: "var(--info-color)",
               borderRadius: "20px",
               maxWidth: "180px",
               alignSelf: "center",

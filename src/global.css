@@ -1,5 +1,5 @@
 :root {
-  font-family: sans-serif;
+  font-family: 'Quicksand';
   line-height: 1.5;
   font-weight: 400;
 
@@ -15,13 +15,13 @@
     --success-light: #1ddb492f;
     --danger-color: #dc3545;
     --warning-color: #ffc107; 
-    --info-color: rgba(0, 117, 255, 1);
+    --info-color: rgba(11, 32, 148, 0.986);
     --light-color: rgba(255, 255, 255, 0.623);
     --dark-color: #000000;
   
     /* Text Colors */
     --text-primary: white;
-    --text-secondary: rgba(73, 73, 73, 0.849);
+    --text-secondary: rgb(70, 68, 68);
     --text-muted: #b6b3b3da;
   
     /* Background Colors */

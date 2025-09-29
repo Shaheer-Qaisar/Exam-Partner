@@ -38,6 +38,7 @@ function FAQs() {
          minWidth={{ xs: "100%", md: "90%",lg:"80%",xl:"75%" }}
           maxWidth={{ xs: "100%", md: "90%",lg:"80%",xl:"75%" }}
           justifySelf={'center'}
+          my={12}
       >
         {/* Left text section */}
         <Stack

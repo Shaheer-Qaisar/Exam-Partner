@@ -8,6 +8,7 @@ import {
   Select,
   InputLabel,
   FormControl,
+  Box
 } from "@mui/material";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
@@ -137,10 +138,11 @@ function Banner() {
   return (
     <>
       <Stack gap={0} minWidth={"100%"} maxWidth={"100%"}>
+        {/* on top of banner  */}
         <Stack
           direction={"row"}
           gap={2}
-          sx={{ backgroundColor: "rgba(48, 178, 243, 0.15)" }}
+          sx={{ backgroundColor: "rgba(239, 246, 255, 1)" }}
           p={1}
           alignItems={"center"}
           justifyContent={"center"}
@@ -151,19 +153,26 @@ function Banner() {
             alt="SirenImg"
             style={{ height: 40, width: 40 }}
           />
-          <Typography color="var(--dark-color)" fontSize={17} fontWeight={550}>
+          <Typography color="var(--dark-color)" fontSize={17} fontWeight={550} textAlign={'center'}>
             PROMOTIONAL OFFER time is running out! World-class tutoring now
             $13/hr.
           </Typography>
         </Stack>
 
-        {/* baneer starting  */}
+        {/* banner starting  */}
         <Stack
-          direction={"row"}
+          direction={["column", "column", "column", "column", "row"]}
           alignItems={"center"}
-          justifyContent={"space-between"}
+          justifyContent={[
+            "center",
+            "center",
+            "center",
+            "center",
+            "space-between",
+          ]}
           py={3}
-          px={15}
+          gap={[10]}
+          px={[2,2,4,5,15]}
           minWidth={"100%"}
           maxWidth={"100%"}
           sx={{
@@ -172,54 +181,91 @@ function Banner() {
           }}
         >
           {/* left section  */}
-          <Stack gap={4} minWidth={"55%"} maxWidth={"55%"}>
+          <Stack
+            gap={4}
+            minWidth={["100%", "100%", "100%", "90%", "55%"]}
+            maxWidth={["100%", "100%", "100%", "90%", "55%"]}
+            justifyContent={["center", "center", "center", "flex-start"]}
+            sx={{
+              textAlign: {
+                xs: "center",
+                sm: "center",
+                md: "center",
+                lg: "center",
+                xl: "left",
+              },
+            }}
+          >
             <Stack gap={-1} minWidth={"100%"} maxWidth={"100%"}>
-              <Typography fontSize={25} color="var(--text-primary)">
+              <Typography
+                fontSize={25}
+                color="var(--text-primary)"
+                fontFamily={"Quicksand"}
+              >
                 Study Steady-Be Exam Ready
               </Typography>
               <Typography
-                fontSize={85}
+                fontSize={[55, 60, 65, 65, 85]}
                 color="var(--text-primary)"
+                fontFamily={"Quicksand"}
                 fontWeight={550}
-                sx={{ wordSpacing: "8px" }}
+                sx={{ wordSpacing: "4px" }}
               >
                 As Low As $13/hr - Start Your Free Trail Class Today
               </Typography>
-              <Typography fontSize={27} color="var(--text-primary)">
+              <Typography
+                fontSize={27}
+                color="var(--text-primary)"
+                fontFamily={"Quicksand"}
+              >
                 World-Class Tutors. Personalized Lessons.<br></br> Exam
                 Techniques. All Curricula Covered.
               </Typography>
             </Stack>
 
             <Stack
+              justifyContent={[
+                "center",
+                "center",
+                "center",
+                "center",
+                "flex-start",
+              ]}
               direction={"row"}
+              alignSelf={["center", "center", "center", "center", "flex-start"]}
+              
               gap={2}
-              flexGrow={3}
+              flexGrow={[3]}
               flexWrap={"wrap"}
-              minWidth={"100%"}
-              maxWidth={"100%"}
+              minWidth={["100%", "100%", "100%", "80%", "90%"]}
+              maxWidth={["100%", "100%", "100%", "80%", "90%"]}
             >
               {widgets.map((item, index) => {
                 return (
                   <Stack
                     key={index}
                     gap={2}
-                    minWidth={"245px"}
-                    maxWidth={"245px"}
+                    minWidth={"220px"}
+                    maxWidth={"220px"}
                     justifyContent={"center"}
                     direction={"row"}
+                    alignItems={"center"}
                     sx={{
                       backgroundColor: "var(--text-primary)",
                       borderRadius: 3,
-                      p: 3,
+                      p: 1.5,
                     }}
                   >
                     <img
                       src={item.icon}
                       alt="Icon"
-                      style={{ height: 60, width: 60 }}
+                      style={{ height: 40, width: 40 }}
                     />
-                    <Typography fontSize={18} color="var(--dark-color)">
+                    <Typography
+                      fontSize={18}
+                      color="var(--dark-color)"
+                      fontFamily={"Quicksand"}
+                    >
                       {item.title}
                     </Typography>
                   </Stack>
@@ -227,18 +273,27 @@ function Banner() {
               })}
             </Stack>
 
-            <Stack direction={"row"} gap={3}>
-              {IconData.map((item, index) => {
-                return (
-                  <Stack key={index}>
-                    <img
-                      src={item.icon}
-                      alt="icons"
-                      style={{ height: 75, width: 75, borderRadius: "50%" }}
-                    />
-                  </Stack>
-                );
-              })}
+            <Stack
+              
+              justifyContent="center"
+              sx={{
+                display: "grid",
+                gap: 3,
+                gridTemplateColumns: {
+                  xs: "repeat(4, 1fr)", // small screens → 3 per row
+                  md: "repeat(8, 1fr)", // above 1000px → all 6 in one row
+                },
+              }}
+            >
+              {IconData.map((item, index) => (
+                <Box key={index} display="flex" justifyContent="center">
+                  <img
+                    src={item.icon}
+                    alt="icons"
+                    style={{ height: 75, width: 75, borderRadius: "50%" }}
+                  />
+                </Box>
+              ))}
             </Stack>
           </Stack>
 
@@ -254,24 +309,30 @@ function Banner() {
               borderRadius: 14,
               p: 5,
               boxShadow: 5,
-              maxWidth: "35%",
-              minWidth: "35%",
+             
               height: "max-content",
             }}
+             maxWidth= {['100%','90%','70%','55%',"35%"]}
+              minWidth={['100%','90%','70%','55%',"35%"]}
           >
             <Typography
-              fontSize={36}
-              maxWidth={"70%"}
+              fontSize={[25,28,30,32,36]}
+              maxWidth={['80%','60%','55%',"70%"]}
               textAlign={"center"}
               alignSelf={"center"}
               fontWeight="bold"
+              fontFamily={"Quicksand"}
             >
               BOOK YOUR FREE TRIAL NOW
             </Typography>
 
             {/* Name */}
             <Stack spacing={0.5}>
-              <Typography fontSize={16} fontWeight={500}>
+              <Typography
+                fontSize={16}
+                fontWeight={500}
+                fontFamily={"Quicksand"}
+              >
                 Name
               </Typography>
               <TextField
@@ -289,7 +350,7 @@ function Banner() {
                 }}
               />
               {errors.name && (
-                <Typography color="red" fontSize={12}>
+                <Typography color="red" fontSize={12} fontFamily={"Quicksand"}>
                   {errors.name}
                 </Typography>
               )}
@@ -297,7 +358,11 @@ function Banner() {
 
             {/* Phone */}
             <Stack spacing={0.5}>
-              <Typography fontSize={16} fontWeight={500}>
+              <Typography
+                fontSize={16}
+                fontWeight={500}
+                fontFamily={"Quicksand"}
+              >
                 Phone Number
               </Typography>
               <TextField
@@ -315,7 +380,7 @@ function Banner() {
                 }}
               />
               {errors.phone && (
-                <Typography color="red" fontSize={12}>
+                <Typography color="red" fontSize={12} fontFamily={"Quicksand"}>
                   {errors.phone}
                 </Typography>
               )}
@@ -323,7 +388,11 @@ function Banner() {
 
             {/* Email */}
             <Stack spacing={0.5}>
-              <Typography fontSize={16} fontWeight={500}>
+              <Typography
+                fontSize={16}
+                fontWeight={500}
+                fontFamily={"Quicksand"}
+              >
                 Email
               </Typography>
               <TextField
@@ -349,7 +418,11 @@ function Banner() {
 
             {/* Curriculum Dropdown */}
             <Stack spacing={0.5}>
-              <Typography fontSize={16} fontWeight={500}>
+              <Typography
+                fontSize={16}
+                fontWeight={500}
+                fontFamily={"Quicksand"}
+              >
                 Curriculum
               </Typography>
               <FormControl
@@ -379,7 +452,7 @@ function Banner() {
                 </Select>
               </FormControl>
               {errors.curriculum && (
-                <Typography color="red" fontSize={12}>
+                <Typography color="red" fontSize={12} fontFamily={"Quicksand"}>
                   {errors.curriculum}
                 </Typography>
               )}
@@ -387,7 +460,11 @@ function Banner() {
 
             {/* Grades Dropdown with scroll */}
             <Stack spacing={0.5}>
-              <Typography fontSize={16} fontWeight={500}>
+              <Typography
+                fontSize={16}
+                fontWeight={500}
+                fontFamily={"Quicksand"}
+              >
                 Grade (%)
               </Typography>
               <FormControl
@@ -424,7 +501,7 @@ function Banner() {
                 </Select>
               </FormControl>
               {errors.grade && (
-                <Typography color="red" fontSize={12}>
+                <Typography color="red" fontSize={12} fontFamily={"Quicksand"}>
                   {errors.grade}
                 </Typography>
               )}
