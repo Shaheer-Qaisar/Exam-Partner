@@ -90,7 +90,7 @@ function Banner() {
 
   return (
     <>
-      <Stack gap={0} minWidth="100%" maxWidth="100%" maxHeight={['auto','auto','90vh']}>
+      <Stack gap={0} minWidth="100%" maxWidth="100%" maxHeight={['auto','auto','90vh','90vh','100vh']}>
        <Stack
   direction={{ xs: "column", md: "row" }}   // switch at 900px
   alignItems="center"
