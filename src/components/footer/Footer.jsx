@@ -266,7 +266,7 @@ function Footer() {
         alignItems="center"
       >
         <Typography color="var(--text-primary)" fontSize={{ xs: 14, sm: 16 }}>
-          © All Rights Reserved. <b>Made by Muhammad Shaheer</b>
+          © All Rights Reserved. 
         </Typography>
       </Stack>
     </>

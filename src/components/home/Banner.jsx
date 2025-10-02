@@ -90,29 +90,30 @@ function Banner() {
 
   return (
     <>
-      <Stack gap={0} minWidth="100%" maxWidth="100%">
-        <Stack
-  direction={{ xs: "column", lg: "row" }}
+      <Stack gap={0} minWidth="100%" maxWidth="100%" maxHeight={['auto','auto','90vh']}>
+       <Stack
+  direction={{ xs: "column", md: "row" }}   // switch at 900px
   alignItems="center"
-  justifyContent={{ xs: "center", lg: "space-between" }}
+  justifyContent={{ xs: "center", md: "space-between" }}
   py={3}
-  px={{ xs: 2, sm: 4, md: 5, lg: 10 }}
+  px={{ xs: 2, sm: 2, md: 5, lg: 8,xl:10 }}
   width="100%"
-  gap={[3,3,3,3]}
+  maxWidth="1550px"   // prevents pushing too wide
+  margin="0 auto"     // centers inside screen
+  gap={{ xs: 3,sm:1 ,md: 5}}
   sx={{
-    overflow: "hidden", // prevents form overflow
-    background:
-      "linear-gradient(to right, #EB7D7E, #B097BE, #6FD4E6)",
-    textAlign: { xs: "center", md: "center", lg: "left" }, // center content <1200
+    overflow: "hidden",
+    background: "linear-gradient(to right, #EB7D7E, #B097BE, #6FD4E6)",
+    textAlign: { xs: "center", md: "left" },
   }}
 >
-  {/* Left section */}
+  {/* Left content */}
   <Stack
     gap={4}
-    minWidth={{ xs: "100%", md: "60%",lg:"50%" }}
-    maxWidth={{ xs: "100%", md: "60%",lg:"50%" }}
+    minWidth={{ xs: "100%", md: "55%", lg: "50%" }}   // shrink at md
+    maxWidth={{ xs: "100%", md: "55%", lg: "50%" }}
     justifyContent="center"
-    alignItems={{ xs: "center", lg: "flex-start" }} // center items <1200
+    alignItems={{ xs: "center", md: "flex-start" }}
   >
     {/* Titles */}
     <Stack gap={-1}>
@@ -120,11 +121,13 @@ function Banner() {
         fontSize={25}
         color="var(--text-primary)"
         fontWeight={550}
+        letterSpacing={'1px'}
+        sx={{wordSpacing:"1px"}}
       >
         Study Steady-Be Exam Ready
       </Typography>
       <Typography
-        fontSize={{ xs: 25, sm: 35, md: 50, lg: 65, xl: 85 }}
+        fontSize={{ xs: 25, sm: 40, md: 33, lg: 55, xl: 75 }}
         color="var(--text-primary)"
        
         fontWeight={550}
@@ -150,7 +153,8 @@ function Banner() {
         display: "grid",
         gridTemplateColumns: {
           xs: "repeat(2, 1fr)", // 2 per row below 600
-          sm: "repeat(3, 1fr)", // 3 per row from 600+
+          sm: "repeat(2, 1fr)", // 3 per row from 600+
+          lg:"repeat(3, 1fr)"
         },
         justifyItems: { xs: "center", lg: "start" }, // center <1200
       }}
@@ -185,7 +189,7 @@ function Banner() {
         gridTemplateColumns: {
           xs: "repeat(4, 1fr)",
           sm: "repeat(4, 1fr)",
-          md: "repeat(8, 1fr)",
+          md: "repeat(4, 1fr)",
           lg: "repeat(8, 1fr)",
         },
         columnGap: 2.5,
@@ -206,28 +210,28 @@ function Banner() {
 
           {/* Booking form */}
           <Toaster />
-          <Stack
-            component="form"
+           <Stack
+    component="form"
     onSubmit={handleSubmit}
     spacing={3}
     sx={{
       backgroundColor: "white",
       borderRadius: 14,
-      p: 5,
+      p: { xs: 3, md: 4, lg: 5 },   // padding adapts
       boxShadow: 5,
       flexShrink: 0,
-      mt: { xs: 5, md: 5, lg: 0 }, // add top space below 1200px
+      mt: { xs: 5, md: 0 },
     }}
-    width={{ xs: "100%", sm: "90%", md: "70%", lg: "40%" }}
-    alignSelf={{ xs: "center", lg: "flex-start" }} // center <1200
-          >
+    width={{ xs: "100%", sm: "90%", md: "42%", lg: "40%" }} // keep inside screen
+    alignSelf={{ xs: "center", md: "flex-start" }}
+  >
             <Typography
               fontSize={{ xs: 25, sm: 28, md: 32, lg: 36 }}
               textAlign="center"
               alignSelf="center"
               fontWeight="bold"
              
-              width={['100%','90%','80%','95%','65%']}
+              width={['100%','90%','100%','95%','65%']}
             >
               BOOK YOUR FREE TRIAL NOW
             </Typography>

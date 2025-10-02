@@ -20,10 +20,10 @@ function Booking() {
   ]
   return (
     <>
-     <Stack my={12} direction={['column','column','column','row','row']} justifyContent={'space-between'} minWidth={'100%'} maxWidth={'100%'} sx={{backgroundImage:"url(/images/tutors.png)",backgroundAttcahment:"fixed",backgroundSize:"cover",backgroundRepeat:"no-repeat",minHeight:"400px"}}  >
+     <Stack my={12} direction={['column','column','column','row','row']} justifyContent={'space-between'} minWidth={'100%'} maxWidth={'100%'} sx={{backgroundImage:"url(/images/tutors.png)",backgroundAttcahment:"fixed",backgroundSize:"cover",backgroundRepeat:"no-repeat",minHeight:{md:"550px",lg:"620px"}}}  >
 
       {/* left section text  */}
-      <Stack spacing={3} minWidth={['100%','100%','80%','50%','40%']} maxWidth={'40%'} py={6} pl={[2,2,2,2,10]} pr={[2,2,2,2,0]} alignSelf={'center'}>
+      <Stack spacing={3} minWidth={['100%','100%','80%','50%','40%']} maxWidth={['100%','100%','80%','50%','40%']} py={6} pl={[2,2,2,2,10]} pr={[2,2,2,2,0]} alignSelf={'center'}>
         <Typography fontSize={35} fontWeight={550} color='var(--text-primary)' >Why Choose My Exam Partner</Typography>
         <Typography fontSize={25} color='var(--text-primary)'>We are not just another tutoring service — we are your academic partners:</Typography>
 
@@ -53,7 +53,7 @@ function Booking() {
   maxWidth={['100%','100%','100%','55%','55%']}
   alignSelf={['center','center','center','center',"flex-end"]}
   sx={{
-    '@media (max-width:600px)': {
+    '@media (max-width:1200px)': {
       display: 'none',
     },
   }}
