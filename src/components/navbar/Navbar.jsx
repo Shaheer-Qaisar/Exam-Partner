@@ -12,6 +12,7 @@ import {
   ListItemText,
   Collapse,
   useMediaQuery,
+  Stack
 } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -171,6 +172,27 @@ export default function Navbar() {
           </List>
         </Box>
       </Drawer>
+
+ <Stack
+          direction={"row"}
+          gap={2}
+          sx={{ backgroundColor: "rgba(239, 246, 255, 1)" }}
+          p={1}
+          alignItems={"center"}
+          justifyContent={"center"}
+          maxWidth={"100%"}
+        >
+          <img
+            src="/images/siren.png"
+            alt="SirenImg"
+            style={{ height: 40, width: 40 }}
+          />
+          <Typography color="var(--dark-color)" fontSize={17} fontWeight={550} textAlign={'center'}>
+            PROMOTIONAL OFFER time is running out! World-class tutoring now
+            $13/hr.
+          </Typography>
+        </Stack>
     </AppBar>
+    
   );
 }

@@ -3,7 +3,9 @@ import "./global.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import ProtectedLayout from "./components/layout/ProtectedLayout";
-import MainPages from "./components/Pages/MainPages";
+import MainPages from "./components/home/MainPages";
+import MainAbout from "./components/about/MainAbout";
+import PatientsList from "./components/PatientsList";
 
 // placeholder pages
 
@@ -14,6 +16,7 @@ function App() {
         {/* Public Layout */}
         <Route element={<Layout />}>
           <Route path="/" element={<MainPages />} />
+          <Route path="/about" element={<MainAbout />} />
         </Route>
 
         {/* Protected Layout */}

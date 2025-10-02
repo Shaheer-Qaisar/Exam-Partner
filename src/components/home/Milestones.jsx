@@ -83,8 +83,8 @@ function Milestones() {
           spacing={2}
           textAlign={"center"}
           alignSelf={"center"}
-          minWidth={["100%", "70%", "60%", "40%"]}
-          maxWidth={["100%", "70%", "60%", "40%"]}
+          minWidth={["100%", "70%", "70%", "55%"]}
+          maxWidth={["100%", "70%", "70%", "55%"]}
           
         >
           <Typography fontSize={32} fontWeight={550}>
@@ -100,10 +100,10 @@ function Milestones() {
         <Stack
           direction={["column", "row"]}
           gap={4}
-          minWidth={["100%", "100%", "100%", "90%", "80%"]}
+          minWidth={["100%", "100%", "100%", "100%", "95%"]}
           flexWrap={"wrap"}
           flexGrow={3}
-          maxWidth={["100%", "100%", "100%", "90%", "80%"]}
+          maxWidth={["100%", "100%", "100%", "100%", "95%"]}
           justifyContent={"center"}
           alignSelf={"center"}
           px={[2, 0]}
@@ -114,10 +114,10 @@ function Milestones() {
               <Stack
                 spacing={3}
                 key={index}
-                boxShadow={3}
+                boxShadow={12}
                 p={4}
-                minWidth={["100%", "45%", "33%", "30%", "26%"]}
-                maxWidth={["100%", "45%", "33%", "30%", "26%"]}
+                minWidth={["100%", "60%", "42%", "30%", "26%"]}
+                maxWidth={["100%", "60%", "42%", "30%", "26%"]}
                 borderRadius={8}
                 sx={{
                   minHeight: "450px", // fix card height (adjust as needed)

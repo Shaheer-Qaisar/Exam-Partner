@@ -82,8 +82,8 @@ function ContactUs() {
     <Stack
       direction={isBelow900 ? "column" : isBelow1200 ? "column" : "row"}
       justifyContent={"space-between"}
-      maxWidth={["95%", "75%", "85%", '75%',"63%"]}
-      minWidth={["95%", "75%", "85%", '75%',"63%"]}
+      maxWidth={["95%", "75%", "75%", "90%", "70%"]}
+      minWidth={["95%", "75%", "75%", "90%", "70%"]}
       m={[1, 3]}
       gap={3}
       alignItems={"center"}
@@ -112,14 +112,14 @@ function ContactUs() {
           <Stack spacing={2} maxWidth={"70%"}>
             <Typography
               color="white"
-              fontSize={isBelow1200 ? 28 : 35}
+              fontSize={isBelow1200 ? 30 : 35}
               fontWeight={"SemiBold"}
               fontFamily={"Poppins"}
             >
               Contact Us For Tutor
             </Typography>
             <Typography
-              fontSize={16}
+              fontSize={18}
               fontWeight={"Medium"}
               color="rgba(204, 204, 204, 1)"
             >
@@ -139,7 +139,7 @@ function ContactUs() {
         component="form"
         onSubmit={handleSubmit}
       >
-        <Typography color="var(--info-color)" fontSize={28}>
+        <Typography color="var(--info-color)" fontSize={28} fontWeight={550}>
           My Exam Partner
         </Typography>
 
@@ -157,12 +157,19 @@ function ContactUs() {
                 onChange={handleChange}
                 type="text"
                 placeholder="Name"
+                size="small" // reduces default height
                 sx={{
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "25px",
+                    paddingY: "6px", // reduce vertical padding
+                    height: "45px", // smaller field height
+                  },
+                  "& .MuiOutlinedInput-input": {
+                    padding: "8px 12px", // control input text padding
                   },
                 }}
               />
+
               {errors.name && (
                 <Typography color="red" fontSize={12} textAlign="left">
                   {errors.name}
@@ -177,9 +184,14 @@ function ContactUs() {
                 onChange={handleChange}
                 type="email"
                 placeholder="Email"
-                sx={{
+               sx={{
                   "& .MuiOutlinedInput-root": {
                     borderRadius: "25px",
+                    paddingY: "6px", // reduce vertical padding
+                    height: "45px", // smaller field height
+                  },
+                  "& .MuiOutlinedInput-input": {
+                    padding: "8px 12px", // control input text padding
                   },
                 }}
               />
@@ -199,10 +211,15 @@ function ContactUs() {
               type="number"
               placeholder="WhatsApp Number"
               sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "25px",
-                },
-              }}
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "25px",
+                    paddingY: "6px", // reduce vertical padding
+                    height: "45px", // smaller field height
+                  },
+                  "& .MuiOutlinedInput-input": {
+                    padding: "8px 12px", // control input text padding
+                  },
+                }}
             />
             {errors.phone && (
               <Typography color="red" fontSize={12} textAlign="left">
@@ -219,10 +236,15 @@ function ContactUs() {
               type="text"
               placeholder="Curriculum"
               sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "25px",
-                },
-              }}
+                  "& .MuiOutlinedInput-root": {
+                    borderRadius: "25px",
+                    paddingY: "6px", // reduce vertical padding
+                    height: "45px", // smaller field height
+                  },
+                  "& .MuiOutlinedInput-input": {
+                    padding: "8px 12px", // control input text padding
+                  },
+                }}
             />
             {errors.curriculum && (
               <Typography color="red" fontSize={12} textAlign="left">
