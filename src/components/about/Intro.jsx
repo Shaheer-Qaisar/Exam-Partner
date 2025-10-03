@@ -8,15 +8,21 @@ function Intro() {
         minWidth={"100%"}
         maxWidth={"100%"}
         direction={"row"}
-        gap={2}
-        px={40}
+        px={[2,5]}
         my={10}
-        alignItems={'center'}
+        alignItems={"center"}
+        justifyContent={[
+          "center",
+          "space-between",
+          "space-between",
+          "space-evenly",
+        ]}
+        border={1}
       >
         {/* left section  */}
-        <Stack spacing={3} maxWidth={'40%'}>
-        {/* icon and text  */}
-          <Stack direction={"row"} gap={1.5} alignItems={'center'}>
+        <Stack spacing={3} maxWidth={["100%", "100%", "50%", "40%"]}>
+          {/* icon and text  */}
+          <Stack direction={"row"} gap={1.5} alignItems={"center"}>
             <svg
               width="15"
               height="17"
@@ -45,20 +51,47 @@ function Intro() {
                 fill="var(--info-color)"
               />
             </svg>
-            <Typography color="var(--info-color)" fontSize={20} fontWeight={550}>About Us</Typography>
+            <Typography
+              color="var(--info-color)"
+              fontSize={20}
+              fontWeight={550}
+            >
+              About Us
+            </Typography>
           </Stack>
           {/* heading  */}
-          <Typography fontSize={50} >At My Exam Partner,</Typography>
-          <Typography fontSize={18}>
-            At My Exam Partner, we believe tutoring should be more than just teaching — it should be a true partnership. Today’s students don’t just need help with subjects; they need mentors who understand exam pressure, who can turn confusion into clarity, and who stand beside them as a steady partner on their exam journey.
+          <Typography fontSize={[25, 32, 40, 45, 50]}>
+            At My Exam Partner,
           </Typography>
           <Typography fontSize={18}>
-            We’re not another tutoring company. We are your child’s exam partner — committed to guiding them with structure, strategy, and confidence until the results speak for themselves.
+            At My Exam Partner, we believe tutoring should be more than just
+            teaching — it should be a true partnership. Today’s students don’t
+            just need help with subjects; they need mentors who understand exam
+            pressure, who can turn confusion into clarity, and who stand beside
+            them as a steady partner on their exam journey.
+          </Typography>
+          <Typography fontSize={18}>
+            We’re not another tutoring company. We are your child’s exam partner
+            — committed to guiding them with structure, strategy, and confidence
+            until the results speak for themselves.
           </Typography>
         </Stack>
 
         {/* right section image  */}
-        <img src="/images/introImg.png"  alt="Intro img" style={{height:"600",minWidth:"48%"}}/>
+        <Stack
+          minWidth={["45%", "40%", "40%", "43%"]}
+          maxWidth={["45%", "40%", "40%", "43%"]}
+          sx={{
+            display: { xs: "none", sm: "none", md: "flex" }, // hide <900px, show >=900px
+          }}
+        >
+          <img
+            src="/images/introImg.png"
+            alt="Intro img"
+            height={450}
+            width="100%"
+          />
+        </Stack>
       </Stack>
     </>
   );
