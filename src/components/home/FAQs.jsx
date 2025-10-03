@@ -50,8 +50,8 @@ function FAQs() {
         <Stack
           spacing={2}
           color="black"
-          minWidth={{ xs: "100%", md: "40%",lg:"35%",xl:"30%" }}
-          maxWidth={{ xs: "100%", md: "40%",lg:"35%",xl:"30%" }}
+          minWidth={{ xs: "100%", md: "40%",lg:"38%",xl:"35%" }}
+          maxWidth={{ xs: "100%", md: "40%",lg:"38%",xl:"35%" }}
           textAlign={{ xs: "center", md: "left" }}
         >
           <Typography
@@ -115,9 +115,9 @@ function FAQs() {
           <AccordionSummary
             expandIcon={
               expanded === index ? (
-                <RemoveIcon sx={{ color: "var(--info-color)" }} />
+                <RemoveIcon sx={{ color: "var(--dark-color)" }} />
               ) : (
-                <AddIcon sx={{ color: "var(--info-color)" }} />
+                <AddIcon sx={{ color: "var(--dark-color)" }} />
               )
             }
             aria-controls={`panel${index}-content`}

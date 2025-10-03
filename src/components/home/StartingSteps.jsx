@@ -32,8 +32,8 @@ function StartingSteps() {
 
         {/* left side text  */}
         <Stack spacing={3} minWidth={['100%','100%','100%','50%']} maxWidth={['100%','100%','100%','50%']} alignItems={['center','center','center','flex-start']} textAlign={['center','center','center','left']} my={3}>
-          <Typography color='var(--dark-color)' fontSize={55} fontWeight={'bold'}>Here’s How Easy It Is to Learn with Us</Typography>
-          <Typography color='var(--text-secondary)' fontSize={35}>Follow these simple steps to start your personalized learning journey</Typography>
+          <Typography color='var(--dark-color)' fontSize={[25,30,35,45,55]} fontWeight={'bold'}>Here’s How Easy It Is to Learn with Us</Typography>
+          <Typography color='var(--text-secondary)' fontSize={[20,24,26,30,35]}>Follow these simple steps to start your personalized learning journey</Typography>
           <Button  sx={{color:"rgba(7, 14, 116, 0.84)",mt:10,backgroundColor:"transparent",border:"1px solid rgba(7, 14, 116, 0.84)",maxWidth:"320px",fontSize:18,px:2.5,py:1.5,borderRadius:10,"&:hover":{
       backgroundColor:"rgba(7, 14, 116, 0.84)",color:"var(--text-primary)"
     }}}  endIcon={<Person2RoundedIcon sx={{width:25,height:25}}/>}>Let's Connect</Button>
