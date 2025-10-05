@@ -1,13 +1,13 @@
+import React from 'react'
 import { Stack, Typography } from "@mui/material";
-import React from "react";
 
-function Intro() {
+function OurPurpose() {
   return (
     <>
-      <Stack
+     <Stack
         minWidth={"100%"}
         maxWidth={"100%"}
-        direction={"row"}
+        direction={"row-reverse"}
         px={[2,5]}
         my={10}
         alignItems={"center"}
@@ -52,48 +52,40 @@ function Intro() {
             </svg>
             <Typography
               color="var(--info-color)"
-              fontSize={20}
-              fontWeight={550}
+              fontSize={25}
+              fontWeight={'bold'}
             >
-              About Us
+              Our Purpose
             </Typography>
           </Stack>
-          {/* heading  */}
-          <Typography fontSize={[25, 32, 40, 45, 50]}>
-            At My Exam Partner,
+        
+          <Typography fontSize={22}>
+            We exist so that no student feels lost, and no parent feels uncertain about their child’s progress. By making learning personal, structured, and exam-focused, we ensure every student knows not just what to study, but how to succeed.
           </Typography>
-          <Typography fontSize={18}>
-            At My Exam Partner, we believe tutoring should be more than just
-            teaching — it should be a true partnership. Today’s students don’t
-            just need help with subjects; they need mentors who understand exam
-            pressure, who can turn confusion into clarity, and who stand beside
-            them as a steady partner on their exam journey.
-          </Typography>
-          <Typography fontSize={18}>
-            We’re not another tutoring company. We are your child’s exam partner
-            — committed to guiding them with structure, strategy, and confidence
-            until the results speak for themselves.
+          <Typography fontSize={22}>
+           Our purpose is simple: to take the stress out of exams and replace it with clarity, confidence, and results..
           </Typography>
         </Stack>
 
         {/* right section image  */}
         <Stack
-          minWidth={["45%", "40%", "40%", "43%"]}
-          maxWidth={["45%", "40%", "40%", "43%"]}
+          minWidth={["45%", "50%", "40%", "35%"]}
+          maxWidth={["45%", "50%", "40%", "35%"]}
           sx={{
             display: { xs: "none", sm: "none", md: "flex" }, // hide <900px, show >=900px
           }}
         >
           <img
-            src="/images/introImg.png"
+            src="/images/purpose.png"
             alt="Intro img"
             height={450}
             width="100%"
           />
         </Stack>
       </Stack>
+      
     </>
-  );
+  )
 }
 
-export default Intro;
+export default OurPurpose

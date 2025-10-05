@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
-function Banner2() {
+function Banner() {
   
   const boxData = [
     { img: "/images/certified.png", text: "Certified & Verified Tutors" },
@@ -89,6 +89,7 @@ const IconData = [
         height: { xs: "auto", md: "110vh" }, // Responsive height
         // overflow: "hidden",
         boxSizing: "border-box",
+         background: "linear-gradient(to right, #EB7D7E, #B097BE, #6FD4E6)",
       }}
     >
       {/* LEFT SECTION */}
@@ -106,11 +107,12 @@ const IconData = [
       >
         {/* Heading Section */}
         <Box>
-          <Typography fontSize={{ xs: 14, sm: 16, md: 18 }}>
+          <Typography fontSize={{ xs: 14, sm: 16, md: 18 }} color="var(--text-primary)">
             Study Steady - Be Exam Ready
           </Typography>
 
           <Typography
+           color="var(--text-primary)"
             fontWeight="bold"
             sx={{
               fontSize: {
@@ -127,7 +129,7 @@ const IconData = [
             Start Your Free Trial <br /> Class Today
           </Typography>
 
-          <Typography fontSize={{ xs: 14, sm: 16, md: 18 }}>
+          <Typography  color="var(--text-primary)" fontSize={{ xs: 14, sm: 16, md: 18 }}>
             World-Class Tutors. Personalized Lessons.
             <br />
             Exam Techniques. All Curricula Covered.
@@ -139,7 +141,7 @@ const IconData = [
           direction="row"
           flexWrap="wrap"
           gap={2}
-          maxWidth="100%"
+          maxWidth={["100%",'100%','90%','80%']}
           gridTemplateColumns={{
             xs: "repeat(2, 1fr)", // 2 columns on mobile
             sm: "repeat(3, 1fr)", // 3 columns on tablet and larger
@@ -154,17 +156,17 @@ const IconData = [
               p={1.5}
               borderRadius={2}
               sx={{
-                border: "1px solid #ddd",
+                backgroundColor:"var(--text-primary)",
                 flex: "1 1 auto",
               }}
-              width={[150, 200, 180]}
+              width={[120, 200, 150]}
             >
               <img
                 src={item.img}
                 alt="icon"
                 style={{ height: 32, width: 32 }}
               />
-              <Typography fontSize={{ xs: 12, sm: 14 }}>{item.text}</Typography>
+              <Typography  fontSize={{ xs: 12, sm: 14 }}>{item.text}</Typography>
             </Stack>
           ))}
         </Stack>
@@ -178,6 +180,7 @@ const IconData = [
             md: "repeat(4, 1fr)", // 3 columns on tablet and larger
             lg: "repeat(4,1fr)",
           }}
+          justifyContent={['center','center','flex-start']}
         >
           {IconData.map((item, index) => (
             <Stack
@@ -391,4 +394,4 @@ const IconData = [
   );
 }
 
-export default Banner2;
+export default Banner;

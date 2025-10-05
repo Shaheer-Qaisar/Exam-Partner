@@ -29,10 +29,8 @@ function OurTutors() {
 
   return (
     <>
-    <Stack spacing={15} my={18} width={'100%'}>
-    <Button  sx={{backgroundColor:"var(--info-color)",color:"var(--text-primary)",maxWidth:"320px",fontSize:18,alignSelf:"center",px:2.5,py:1.5,borderRadius:10,border:"1px solid transparent","&:hover":{
-      color:"var(--info-color)",backgroundColor:"transparent",border:"1px solid var(--info-color)"
-    }}}  endIcon={<Person2RoundedIcon sx={{width:25,height:25}}/>}>Request A Tutor</Button>
+    <Stack spacing={[10,10,15]} my={18} width={'100%'}>
+   
        <Stack
         spacing={4}
         p={3}
@@ -98,7 +96,7 @@ function OurTutors() {
         </Stack>
       </Stack>
 
-          <Stack pt={[0,0,12,12]}>
+          <Stack pt={[0,0,8,8]}>
              <Button  sx={{color:"var(--info-color)",backgroundColor:"transparent",border:"1px solid var(--info-color)",maxWidth:"320px",fontSize:18,alignSelf:"center",px:2.5,py:1.5,borderRadius:10,"&:hover":{
       backgroundColor:"var(--info-color)",color:"var(--text-primary)"
     }}}  endIcon={<Person2RoundedIcon sx={{width:25,height:25}}/>}>See More Tutors</Button>
